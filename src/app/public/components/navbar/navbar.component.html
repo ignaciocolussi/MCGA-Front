@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow-lg">
+  <div class="container-fluid p-1 m-1 me-4 ms-4 pe-4">
+    <a class="navbar-brand logo" href="#">Anotador!</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarText"
+      aria-controls="navbarText"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav ms-auto mb-auto">
+        @if (!IsLoggedIn){
+        <li class="nav-item">
+          <div class="btn btn-login" [routerLink]="['/private/home']">
+            Acceso App
+          </div>
+        </li>
+        <li class="nav-item">
+          <div
+            class="btn btn-primary btn-signup rounded-3"
+            [routerLink]="['/signup']"
+          >
+            Registro
+          </div>
+        </li>
+
+        } @else {
+        <li class="nav-item">
+          <div class="btn btn-logout">Logout</div>
+        </li>
+        }
+      </ul>
+    </div>
+  </div>
+</nav>

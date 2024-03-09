@@ -7,12 +7,14 @@ import { LandingComponent } from './components/landing/landing.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NavbarComponent } from './components/navbar/navbar.component';
 @NgModule({
   declarations: [
     PublicComponent,
     LandingComponent,
     NotFoundComponent,
     SignupComponent,
+    NavbarComponent,
   ],
   imports: [
     CommonModule,
