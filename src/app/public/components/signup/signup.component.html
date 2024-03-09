@@ -1,0 +1,125 @@
+<div
+  class="container-fluid d-flex justify-content-center align-items-center"
+  style="height: 100vh"
+>
+  <div class="col-sm-12 col-md-10 col-xl-6">
+    <!-- <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" formControlName="email">
+            <div *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched" class="alert alert-danger">
+                <div *ngIf="loginForm.get('email').errors.required">Email is required</div>
+                <div *ngIf="loginForm.get('email').errors.email">Email is invalid</div>
+            </div>
+            </div>
+            <div class="form-group"> -->
+    <div class="card shadow shadow-xl">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-xl-6" id="imagen">
+            <img src="/assets/signup.svg" alt="signup" class="img-fluid" />
+          </div>
+          <div class="col">
+            <h1 class="card-text display-5">Bienvenido!</h1>
+            <p class="card-text lead">Completa tus datos para continuar.</p>
+
+            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="row">
+              <div>
+                <div
+                  class
+                  *ngIf="this.signupForm.errors || this.error"
+                  class="alert alert-danger mt-1 p-2"
+                >
+                  <span
+                    ><i class="bi bi-exclamation-diamond-fill me-1"></i> @if
+                    (this.signupForm.errors) { Los datos no son correctos.
+                    Inténtalo de nuevo.} @else {{{  this.error }} }</span
+                  >
+                </div>
+              </div>
+
+              <div id="campos">
+                <div class="row m-0 p-0 gap-2">
+                  <div class="col m-0 p-0">
+                    <label class="visually-hidden" for="nameInput">name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="nameInput"
+                      placeholder="Nombre"
+                      formControlName="name"
+                      required
+                    />
+                  </div>
+                  <div class="col m-0 p-0">
+                    <label class="visually-hidden" for="surnameInput"
+                      >surname</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="surnameInput"
+                      placeholder="Apellido"
+                      formControlName="surname"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="row">
+                  <label class="visually-hidden" for="emailInput">email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="emailInput"
+                    placeholder="Email"
+                    formControlName="email"
+                    required
+                  />
+                </div>
+
+                <div class="row">
+                  <label class="visually-hidden" for="passwordInput"
+                    >Password</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="passwordInput"
+                    placeholder="Password"
+                    formControlName="password"
+                    autocomplete="current-password"
+                    required
+                  />
+                </div>
+                <div class="row">
+                  <label class="visually-hidden" for="passwordInput2"
+                    >Password</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="passwordInput2"
+                    placeholder="Verifica la password"
+                    formControlName="password2"
+                    autocomplete="current-password"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row" id="contenedorboton">
+                <button
+                  type="submit"
+                  class="btn btn-sm btn-primary"
+                  [disabled]="signupForm.invalid"
+                >
+                  Ingreso
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
