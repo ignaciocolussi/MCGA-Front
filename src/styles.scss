@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Nixie+One");
+@import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+
+$primary: #c0540c;
+$secondary: #f4f4f4d3;
+
+$border-width: 1px;
+$border-color: #5b341c2c;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+body {
+  background-color: #14120f;
+  color: #ccc;
+  scroll-behavior: smooth;
+  background-attachment: fixed;
+}
+
+$input-color: $primary;
