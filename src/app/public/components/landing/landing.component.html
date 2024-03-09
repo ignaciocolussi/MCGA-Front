@@ -1,0 +1,63 @@
+<app-navbar></app-navbar>
+<div
+  class="container my-5 d-flex flex-column align-items-center justify-content-center gap-3 mt-5 shadow-lg p-5 bg-light rounded-3 pb-0 col-lg-7"
+>
+  <h1 class="d-flex flex-column text-capitalize fw-bold display-4 text-dark">
+    <span>Tus notas.</span>
+    <span class="text-bg-primary p-2 rounded-3">En un solo lugar.</span>
+  </h1>
+  <p class="lead text-body">
+    App simple para guardar tus notas, pensamientos e ideas en un solo lugar.
+  </p>
+  <div class="overflow-hidden" style="max-height: 30vh">
+    <div class="container px-5">
+      <img
+        src="../../../../assets/captura-app.png"
+        class="img-fluid border rounded-3 shadow-lg mb-4"
+        alt="Imagen representativa de aplicacion de notas."
+        width="700"
+        height="500"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</div>
+
+<div
+  class="container my-5 d-flex flex-column align-items-center justify-content-center gap-3 mt-5 shadow-lg p-5 bg-light rounded-3 col-lg-7"
+>
+  <div
+    class="row flex-lg-row-reverse align-items-center g-5 py-5 justify-content-evenly text-end border-bottom border-1"
+  >
+    <div class="col text-dark">
+      <h1 class="display-5 fw-bold lh-1 mb-3 text-capitalize">
+        Usuarios registrados
+      </h1>
+    </div>
+    <div class="col-2">
+      <h1 class="display-1 text-primary fw-bold text-center glow">
+        <ng-container *ngIf="qtyUsers$ | async as users">{{
+          users.count
+        }}</ng-container>
+      </h1>
+    </div>
+  </div>
+
+  <div
+    class="row flex-lg-row-reverse align-items-center g-5 py-5 justify-content-evenly"
+  >
+    <div class="col-2">
+      <h1
+        *ngIf="qtyNotes$ | async as notes"
+        class="display-1 text-primary fw-bold text-center glow"
+      >
+        {{ notes.count }}
+      </h1>
+    </div>
+    <div class="col text-dark">
+      <h1 class="display-5 fw-bold lh-1 mb-3 text-capitalize">
+        Notas almacenadas
+      </h1>
+    </div>
+  </div>
+</div>
