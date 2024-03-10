@@ -8,7 +8,7 @@ import { UserRegistration } from '../models/user';
   providedIn: 'root',
 })
 export class PublicService {
-  url: String = 'http://localhost:3000';
+  url: String = 'https://mcga-back.onrender.com';
 
   constructor(private _http: HttpClient) {}
 
