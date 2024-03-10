@@ -1,0 +1,114 @@
+<!-- Create a html for multiselect a tag and then send an event with the selected tag to the parent -->
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <div class="bg-dark tag-container gap-3">
+      <app-tag
+        *ngFor="let tag of tags"
+        [tag]="tag"
+        [deletable]="allowDelete"
+        (click)="onTagSelected(tag)"
+        (deleteTagEvent)="onDeleteTag($event)"
+        [ngClass]="{ 'not-selected': !isFiltered(tag) }"
+      ></app-tag>
+      <button
+        *ngIf="allowCreate"
+        type="button"
+        class="btn btn-sm btn-dark"
+        aria-label="Close"
+        (click)="createTag()"
+      >
+        <i class="bi bi-plus"></i>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="modal fade center-modal"
+    id="modalTag"
+    tabindex="-3"
+    aria-labelledby="modalTagContent"
+    aria-hidden="true"
+    #modalTag
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content shadow shadow-lg">
+        <form [formGroup]="TagForm" (ngSubmit)="onSubmit()">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5 text-primary">
+              Agregar nueva etiqueta
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body gap-3">
+            <div class="row p-2">
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="text"
+                  formControlName="text"
+                  placeholder="Texto de etiqueta"
+                />
+              </div>
+              <div class="col-2">
+                <input
+                  type="color"
+                  class="form-control form-control-color"
+                  id="color"
+                  formControlName="color"
+                  title="Choose your color"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer flex-nowrap">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="TagForm.invalid"
+            >
+              Guardar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="deletetagmodal" #deletetagmodal tabindex="2345234">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-primary">Confirmar eliminación</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body text-body">
+        <p>¿Borramos esta etiqueta?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          No
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          (click)="deleteTag()"
+        >
+          Si!
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
