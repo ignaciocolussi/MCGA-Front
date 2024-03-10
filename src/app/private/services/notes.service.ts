@@ -12,7 +12,7 @@ import { TagsResponse } from '../models/responses';
   providedIn: 'root',
 })
 export class NotesService {
-  private url = 'http://localhost:3000';
+  private url = 'https://mcga-back.onrender.com';
   constructor(private _auth: AuthService, private _http: HttpClient) {}
 
   async getNotes(): Promise<Note[]> {

@@ -5,7 +5,10 @@ import { HomeComponent } from './components/home/home.component';
 import { loggedinGuard } from './guards/loggedin.guard';
 import { PrivateComponent } from './private.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'home', canActivate: [loggedinGuard], component: HomeComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

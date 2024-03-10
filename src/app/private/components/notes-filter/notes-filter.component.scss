@@ -1,0 +1,44 @@
+.badge {
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.not-selected {
+  opacity: 50%;
+  transition: 0.3s;
+}
+
+.not-selected:hover {
+  opacity: 100%;
+  transition: 0.3s;
+}
+
+.tag-container {
+  border: 0.1px solid #5b341c;
+  box-shadow: 0 2px 8px 0px #5b341c;
+}
+
+.container,
+.tag-container,
+.card-body,
+.row,
+.card {
+  border-radius: 20px;
+}
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1rem;
+  padding: 0.8rem;
+}
+
+app-tag {
+  cursor: pointer;
+}
+
+.modal {
+  z-index: 99999999;
+}
