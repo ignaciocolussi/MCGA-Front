@@ -1,0 +1,16 @@
+<div
+  class="badge badge-sm d-flex align-items-center justify-content-center"
+  [ngStyle]="{ backgroundColor: tag.color, color: textColor }"
+>
+  <span class="m-1">{{ tag.text }}</span>
+
+  <button
+    *ngIf="deletable"
+    type="button"
+    class="btn btn-sm"
+    aria-label="Close"
+    (click)="deleteTag(tag)"
+  >
+    <i class="bi bi-trash3-fill"></i>
+  </button>
+</div>
