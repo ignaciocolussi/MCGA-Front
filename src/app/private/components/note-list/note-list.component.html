@@ -1,0 +1,120 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body bg-body-secondary">
+      <div
+        class="card-title d-flex align-content-center justify-content-center display-6"
+      >
+        Notas
+      </div>
+
+      <div class="card-text">
+        <div class="col">
+          <div
+            class="d-flex flex-row flex-wrap align-baseline gap-3 justify-content-center"
+          >
+            <app-note-mini
+              *ngFor="let note of notes"
+              [note]="note"
+              (click)="openNote(note)"
+            ></app-note-mini>
+          </div>
+          <div
+            class="d-flex flex-row flex-wrap align-baseline gap-3 justify-content-center"
+          >
+            <app-note-blank (click)="openNote()"></app-note-blank>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade center-modal"
+  id="modalNote"
+  tabindex="-1"
+  aria-labelledby="modalNoteContent"
+  aria-hidden="true"
+  #modalNote
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form [formGroup]="NoteForm" (ngSubmit)="onSubmit()">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5">
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              formControlName="title"
+              placeholder="Título"
+            />
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <textarea
+            type="text"
+            class="form-control"
+            id="content"
+            formControlName="content"
+            placeholder="Escriba aqui..."
+            rows="10"
+          ></textarea>
+        </div>
+        <div class="modal-footer flex-nowrap">
+          <app-notes-filter
+            [tags]="tags"
+            (filterTagsEvent)="onTagFilterChangeForm($event)"
+          ></app-notes-filter>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-toggle="modal"
+            data-bs-target="#delete-note-modal"
+          >
+            <i class="bi bi-trash3-fill"></i>
+          </button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="delete-note-modal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-primary">Confirmar eliminación</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body text-body">
+        <p>¿Borramos esta nota?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          No
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="deleteNote(note)"
+          data-bs-dismiss="modal"
+        >
+          Si!
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
