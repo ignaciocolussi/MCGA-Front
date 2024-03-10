@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
     console.debug('Filter changed', tags);
     tags = tags.map((tag: { _id: any }) => tag._id);
 
-    if (tags.length === 0) {
+    if (tags.length == 0) {
       this.notes = this._originalNotesList;
       return;
     }
@@ -119,8 +119,10 @@ export class HomeComponent implements OnInit {
     try {
       let res$ = this._notes.deleteNote(note);
       await res$;
-      this.notes = this.notes.splice(this.notes.indexOf(note), 1);
-      this._originalNotesList.splice(this._originalNotesList.indexOf(note), 1);
+      this.notes = this.notes.filter((n) => n._id != note._id);
+      this._originalNotesList = this._originalNotesList.filter(
+        (n) => n._id != note._id
+      );
       this.onTagFilterChange([]);
       this.toastMessage = 'Nota eliminada!';
       this.error = false;
