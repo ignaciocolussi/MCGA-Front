@@ -1,29 +1,47 @@
-$h1-font: "Nixie One", cursive;
-
-h1,
-h2,
-span,
-p {
-  font-family: $h1-font;
-}
-
-.glow {
-  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #c0540c,
-    0 0 70px #c0540c, 0 0 80px #c0540c, 0 0 100px #c0540c, 0 0 150px #c0540c;
-  animation: glow 1s infinite;
-
-  @keyframes glow {
-    0% {
-      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #c0540c,
-        0 0 70px #c0540c, 0 0 80px #c0540c, 0 0 100px #c0540c, 0 0 150px #c0540c;
-    }
-    50% {
-      text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #c0540c,
-        0 0 80px #c0540c, 0 0 90px #c0540c, 0 0 110px #c0540c, 0 0 160px #c0540c;
-    }
-    100% {
-      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #c0540c,
-        0 0 70px #c0540c, 0 0 80px #c0540c, 0 0 100px #c0540c, 0 0 150px #c0540c;
-    }
+.container-fluid {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-}
+  
+  .card {
+    padding: 1rem;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+  
+  .row {
+    margin-right: -1rem;
+    margin-left: -1rem;
+  }
+  
+  .col-lg-6,
+  .col-md-6,
+  .col-xl-6 {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  
+  #imagen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #imagen img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  h1.card-text {
+    font-family: "Nixie One", cursive;
+    font-size: 2rem; /* Adjust font size as needed */
+  }
+  
+  p.card-text {
+    font-family: "Nixie One", cursive;
+    font-size: 1.5rem; /* Adjust font size as needed */
+  }
