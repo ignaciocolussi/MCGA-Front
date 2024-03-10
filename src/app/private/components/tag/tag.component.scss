@@ -1,0 +1,21 @@
+.badge {
+  font-weight: 500;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn {
+  margin-left: 0.5rem;
+  display: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.badge:hover > .btn {
+  display: block;
+}
+
+.modal {
+  z-index: 999999999999999999;
+}
