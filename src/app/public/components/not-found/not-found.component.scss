@@ -12,19 +12,7 @@
   .card-body {
     padding: 1rem;
   }
-  
-  .row {
-    margin-right: -1rem;
-    margin-left: -1rem;
-  }
-  
-  .col-lg-6,
-  .col-md-6,
-  .col-xl-6 {
-    padding-right: 1rem;
-    padding-left: 1rem;
-  }
-  
+
   #imagen {
     display: flex;
     align-items: center;
@@ -37,14 +25,10 @@
   }
   
   h1.card-text {
-    font-family: "Nixie One", cursive;
-    font-size: 2rem; 
-    font-weight: bold; 
     margin-bottom: 0.5rem; 
   }
   
   p.card-text {
-    font-family: "Nixie One", cursive;
     font-size: 1.5rem; 
     padding-top: 0.5rem; 
   }
