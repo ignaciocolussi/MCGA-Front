@@ -1,0 +1,19 @@
+<div class="card card-note">
+  <div class="card-body">
+    <div class="d-flex flex-column">
+      <h5 class="card-title d-flex justify-content-center">
+        {{ note.title }}
+      </h5>
+      <!-- subtitle with the date of creation-->
+      <h6 class="card-subtitle text-muted d-flex justify-content-center">
+        {{ note.created | date : "dd/MM/yyyy" }}
+      </h6>
+      <div class="card-text text-center">{{ note.content }}</div>
+    </div>
+  </div>
+  <div class="card-footer d-flex justify-content-end">
+    <div class="tag-container gap-1">
+      <app-tag *ngFor="let tag of note.tags" [tag]="tag"></app-tag>
+    </div>
+  </div>
+</div>
