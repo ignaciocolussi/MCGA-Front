@@ -1,0 +1,12 @@
+app-note-blank {
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  app-note-blank {
+    width: 25rem;
+  }
+}
+
+.modal-footer > app-notes-filter {
+  width: 100%;
+}
