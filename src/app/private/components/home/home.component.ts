@@ -44,11 +44,12 @@ export class HomeComponent implements OnInit {
     if (tagsIds.length == 0) {
       this.notes = this._originalNotesList;
       return;
+    }else{
+      this.notes = this._originalNotesList.filter((note) => {
+        return note.tags.some((tag) => tagsIds.includes(tag._id));
+      });
     }
-
-    this.notes = this._originalNotesList.filter((note) => {
-      return note.tags.some((tag) => tagsIds.includes(tag._id));
-    });
+ 
   }
 
   async saveNote(note: Note) {
