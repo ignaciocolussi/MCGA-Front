@@ -39,15 +39,15 @@ export class HomeComponent implements OnInit {
 
   onTagFilterChange(tags: any) {
     console.debug('Filter changed', tags);
-    tags = tags.map((tag: { _id: any }) => tag._id);
+    const tagsIds = tags.map((tag: { _id: any }) => tag._id);
 
-    if (tags.length == 0) {
+    if (tagsIds.length == 0) {
       this.notes = this._originalNotesList;
       return;
     }
 
     this.notes = this._originalNotesList.filter((note) => {
-      return note.tags.some((tag) => tags.includes(tag._id));
+      return note.tags.some((tag) => tagsIds.includes(tag._id));
     });
   }
 
