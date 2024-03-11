@@ -39,14 +39,14 @@ export class HomeComponent implements OnInit {
 
   onTagFilterChange(tags: any) {
     console.debug('Filter changed', tags);
-    const tagsIds = tags.map((tag: { _id: any }) => tag._id);
+    tags = tags.map((tag: { _id: any }) => tag._id);
 
-    if (tagsIds.length == 0) {
+    if (tags.length == 0) {
       this.notes = this._originalNotesList;
       return;
     }else{
       this.notes = this._originalNotesList.filter((note) => {
-        return note.tags.some((tag) => tagsIds.includes(tag._id));
+        return note.tags.some((tag) => tags.includes(tag._id));
       });
     }
  
@@ -89,13 +89,9 @@ export class HomeComponent implements OnInit {
       this.notes.map((note) => {
         note.tags.splice(note.tags.indexOf(tag), 1);
       });
+        
+      this.onTagFilterChange([]);
       
-      if (this.tags.length === 0) {
-        this.notes = this._originalNotesList; 
-      } else {
-        this.onTagFilterChange(this.tags);
-      }
-
       this.toastMessage = 'Etiqueta eliminada!';
       this.error = false;
       this.toast.show();
