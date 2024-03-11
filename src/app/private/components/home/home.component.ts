@@ -45,6 +45,7 @@ export class HomeComponent implements OnInit {
       this.notes = this._originalNotesList;
       return;
     }else{
+
       this.notes = this._originalNotesList.filter((note) => {
         return note.tags.some((tag) => tags.includes(tag._id));
       });
@@ -90,8 +91,8 @@ export class HomeComponent implements OnInit {
         note.tags.splice(note.tags.indexOf(tag), 1);
       });
         
-      this.onTagFilterChange([]);
-      
+      this.notes = this._originalNotesList;
+
       this.toastMessage = 'Etiqueta eliminada!';
       this.error = false;
       this.toast.show();
