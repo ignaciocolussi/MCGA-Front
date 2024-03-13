@@ -56,7 +56,7 @@ export class NotesFilterComponent {
     } else {
       this.filteredTags.push(tag);
     }
-    console.debug('filtering', this.filteredTags);
+
     this.filterTagsEvent.emit(this.filteredTags);
   }
 
@@ -110,7 +110,7 @@ export class NotesFilterComponent {
 
   ngOnChanges(changes: { [propertyName: string]: SimpleChange }) {
     let change: SimpleChange = changes['filterTags'];
-    console.debug('filter changed', change);
+
     if (change && change.currentValue == false) {
       this.filteredTags = [];
     }

@@ -10,8 +10,6 @@ export const authInterceptor: HttpInterceptorFn = (
   req: HttpRequest<any>,
   next: HttpHandlerFn
 ): Observable<any> => {
-  console.debug('Intercepting request', req);
-
   const token = sessionStorage.getItem('token');
   if (token) {
     const clonedReq = req.clone({

@@ -25,7 +25,6 @@ export class LoginComponent {
   ngOnInit() {}
 
   async onSubmit() {
-    console.log(this.loginForm.value);
     if (!this.loginForm.value.email) {
       this.loginForm.controls['email'].setErrors({ required: true });
     }

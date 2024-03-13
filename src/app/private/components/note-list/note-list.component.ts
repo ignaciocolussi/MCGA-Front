@@ -52,9 +52,6 @@ export class NoteListComponent {
   }
 
   async onSubmit() {
-    console.debug(this.NoteForm.value);
-    console.debug(this.note);
-
     this.note.title = this.NoteForm.value.title as string;
     this.note.content = this.NoteForm.value.content as string;
 

@@ -34,11 +34,9 @@ export class HomeComponent implements OnInit {
     this._originalNotesList.push(...this.notes);
 
     this.tags = await this._notes.getTags();
-    console.debug(this.notes);
   }
 
   onTagFilterChange(tags: any) {
-    console.debug('Filter changed', tags);
     tags = tags.map((tag: { _id: any }) => tag._id);
 
     if (tags.length == 0) {
@@ -53,7 +51,6 @@ export class HomeComponent implements OnInit {
   }
 
   async saveNote(note: Note) {
-    console.debug('saving note', note);
     if (note._id) {
       try {
         let res$ = this._notes.updateNote(note);
@@ -91,7 +88,6 @@ export class HomeComponent implements OnInit {
       });
 
       this.notes = this._originalNotesList;
-
       this.toastMessage = 'Etiqueta eliminada!';
       this.error = false;
       this.toast.show();
@@ -103,7 +99,6 @@ export class HomeComponent implements OnInit {
   }
 
   async onCreateTag(tag: any) {
-    console.debug('creating tag', tag);
     try {
       let res$ = this._notes.createTag(tag);
       this.tags.push(await res$);
@@ -130,7 +125,6 @@ export class HomeComponent implements OnInit {
       this.error = false;
       this.toast.show();
     } catch (error) {
-      console.debug(error);
       this.toastMessage = 'Se produjo un error al eliminar la nota';
       this.error = true;
       this.toast.show();
