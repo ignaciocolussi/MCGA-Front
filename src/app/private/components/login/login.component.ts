@@ -49,4 +49,9 @@ export class LoginComponent {
       }
     }
   }
+
+  resetValidators() {
+    this.loginForm.controls['email'].setErrors(null);
+    this.loginForm.controls['password'].setErrors(null);
+  }
 }

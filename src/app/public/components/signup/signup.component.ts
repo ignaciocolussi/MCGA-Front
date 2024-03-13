@@ -57,4 +57,11 @@ export class SignupComponent {
       }
     }
   }
+
+  resetValidators() {
+    this.signupForm.controls['name'].setErrors(null);
+    this.signupForm.controls['email'].setErrors(null);
+    this.signupForm.controls['password'].setErrors(null);
+    this.signupForm.controls['password2'].setErrors(null);
+  }
 }
