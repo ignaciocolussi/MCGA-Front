@@ -42,15 +42,14 @@ export class HomeComponent implements OnInit {
     tags = tags.map((tag: { _id: any }) => tag._id);
 
     if (tags.length == 0) {
-      this.notes = this._originalNotesList;
+      this.notes = [];
+      this.notes.push(...this._originalNotesList);
       return;
-    }else{
-
+    } else {
       this.notes = this._originalNotesList.filter((note) => {
         return note.tags.some((tag) => tags.includes(tag._id));
       });
     }
- 
   }
 
   async saveNote(note: Note) {
@@ -90,7 +89,7 @@ export class HomeComponent implements OnInit {
       this.notes.map((note) => {
         note.tags.splice(note.tags.indexOf(tag), 1);
       });
-        
+
       this.notes = this._originalNotesList;
 
       this.toastMessage = 'Etiqueta eliminada!';

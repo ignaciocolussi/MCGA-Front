@@ -58,6 +58,9 @@ export class NotesFilterComponent {
   }
 
   deleteTag() {
+    this.filteredTags = this.filteredTags.filter(
+      (t: Tag) => t._id !== this.tag._id
+    );
     this.deleteTagEvent.emit(this.tag);
   }
 
