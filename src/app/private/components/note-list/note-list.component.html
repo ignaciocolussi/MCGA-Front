@@ -71,6 +71,7 @@
           <app-notes-filter
             [tags]="tags"
             (filterTagsEvent)="onTagFilterChangeForm($event)"
+            [resetFilter]="this.resetFilter"
           ></app-notes-filter>
           <button
             type="button"

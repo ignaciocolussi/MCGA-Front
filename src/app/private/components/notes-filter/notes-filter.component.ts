@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  SimpleChange,
+} from '@angular/core';
 import { Tag } from '../../models/tag';
 import { TagComponent } from '../tag/tag.component';
 import { NotesService } from '../../services/notes.service';
@@ -17,6 +23,7 @@ export class NotesFilterComponent {
   @Input() tags!: Tag[];
   @Input() allowDelete: boolean = false;
   @Input() allowCreate: boolean = true;
+  @Input() resetFilter: EventEmitter<boolean> | undefined;
   private tag!: Tag;
   public filteredTags: Tag[] = [];
   modalTag: bootstrap.Modal | undefined;
@@ -33,7 +40,15 @@ export class NotesFilterComponent {
 
   constructor() {}
 
-  async ngOnInit() {}
+  async ngOnInit() {
+    if (this.resetFilter) {
+      this.resetFilter.subscribe((value: boolean) => {
+        if (value) {
+          this.filteredTags = [];
+        }
+      });
+    }
+  }
 
   onTagSelected(tag: Tag) {
     if (this.filteredTags.includes(tag)) {
@@ -90,6 +105,14 @@ export class NotesFilterComponent {
 
       this.TagForm.reset();
       this.TagForm.clearValidators();
+    }
+  }
+
+  ngOnChanges(changes: { [propertyName: string]: SimpleChange }) {
+    let change: SimpleChange = changes['filterTags'];
+    console.debug('filter changed', change);
+    if (change && change.currentValue == false) {
+      this.filteredTags = [];
     }
   }
 }

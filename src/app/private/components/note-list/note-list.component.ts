@@ -18,6 +18,7 @@ export class NoteListComponent {
 
   modalNote: bootstrap.Modal | undefined;
   public note!: Note;
+  public resetFilter = new EventEmitter<boolean>();
   public NoteForm = new FormGroup({
     title: new FormControl('', [Validators.required, Validators.minLength(3)]),
     content: new FormControl(''),
@@ -62,6 +63,16 @@ export class NoteListComponent {
       this.modalNote?.hide();
       this.NoteForm.clearValidators();
       this.NoteForm.reset();
+      this.note = {
+        _id: '',
+        title: '',
+        content: '',
+        tags: [],
+        owner: '',
+        created: new Date(),
+        updated: new Date(),
+      };
+      this.resetFilter.emit(true);
     } catch (error: any) {
       console.debug((error as Error).message);
     }
